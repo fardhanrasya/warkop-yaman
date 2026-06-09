@@ -1,0 +1,399 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { Image } from 'astro:assets';
+
+// Import optimized images
+import heroImg from '@/assets/IMG_20260609_201235_272.jpg';
+import bentoCounterImg from '@/assets/IMG_20260609_201016_014.jpg';
+import bentoNobarImg from '@/assets/IMG_20260609_201041_399.jpg';
+import bentoAmbianceImg from '@/assets/IMG_20260609_201206_821.jpg';
+import menuImg from '@/assets/menu.png';
+import pisangImg from '@/assets/pisanggoreng.jpg';
+import tahuImg from '@/assets/tahu.jpg';
+---
+
+<Layout title="Warkop Yaman — Kedai Kopi & Warmindo Pinggir Jalan">
+  <!-- ═══════════════════════════════════════════════════════
+       HERO — Asymmetric Split
+       ═══════════════════════════════════════════════════════ -->
+  <section class="hero" id="heroSection">
+    <div class="hero__content">
+      <div class="hero__label">
+        <span class="hero__label-dot" aria-hidden="true"></span>
+        <span class="hero__label-text">Buka Setiap Hari</span>
+      </div>
+
+      <h1 class="t-display hero__title">
+        Ngopi santai,<br />
+        <span class="t-accent">nongkrong asik</span><br />
+        pinggir jalan.
+      </h1>
+
+      <p class="t-body hero__desc">
+        Kedai kopi dan warmindo sederhana di Karang Mulya.
+        Minuman sasetan, gorengan hangat, dan nobar tiap malam hari.
+        Tempat ngumpul warga sejak 2025.
+      </p>
+
+      <div class="hero__actions">
+        <a href="#menu" class="btn btn--primary" id="heroCtaMenu">
+          Lihat Menu
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+        </a>
+        <a href="#lokasi" class="btn btn--ghost" id="heroCtaLocation">
+          Lokasi &amp; Jam Buka
+        </a>
+      </div>
+    </div>
+
+    <div class="hero__image-wrap">
+      <Image
+        src={heroImg}
+        alt="Suasana malam di Warkop Yaman, pelanggan duduk santai di depan kedai"
+        class="hero__image"
+        loading="eager"
+        width={1200}
+        height={900}
+      />
+      <div class="hero__image-overlay" aria-hidden="true"></div>
+      <div class="hero__image-overlay hero__image-overlay--bottom" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       BENTO GALLERY
+       ═══════════════════════════════════════════════════════ -->
+  <section class="section" id="galeri">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-header__left">
+          <p class="t-caption">Galeri</p>
+          <h2 class="t-headline">Suasana Warkop Yaman</h2>
+        </div>
+      </div>
+
+      <div class="bento stagger" id="bentoGrid">
+        <!-- Featured large card -->
+        <div class="bento__item bento__item--featured reveal">
+          <Image
+            src={bentoCounterImg}
+            alt="Pelanggan memesan minuman di counter Warkop Yaman, pisang gantung dan sachet kopi tertata rapi"
+            class="bento__image"
+            loading="lazy"
+            width={800}
+            height={600}
+          />
+          <div class="bento__overlay">
+            <p class="bento__overlay-title">Counter Warkop</p>
+            <p class="bento__overlay-sub">Aneka minuman sasetan siap disajikan</p>
+          </div>
+        </div>
+
+        <!-- Nobar card -->
+        <div class="bento__item bento__item--span-2 reveal reveal--delay-1">
+          <Image
+            src={bentoNobarImg}
+            alt="Nonton bareng sepak bola di layar besar, warga duduk sambil menikmati minuman"
+            class="bento__image"
+            loading="lazy"
+            width={800}
+            height={500}
+          />
+          <div class="bento__overlay">
+            <p class="bento__overlay-title">Nobar Tiap Malam</p>
+            <p class="bento__overlay-sub">Nonton bareng bola di layar lebar</p>
+          </div>
+        </div>
+
+        <!-- Text stat card -->
+        <div class="bento__item bento__text-card reveal reveal--delay-2">
+          <div>
+            <p class="t-caption">Didirikan</p>
+            <p class="bento__stat">2025</p>
+            <p class="bento__stat-label">Oleh Yaman Hermawan</p>
+          </div>
+        </div>
+
+        <!-- Hangout ambiance -->
+        <div class="bento__item reveal reveal--delay-3">
+          <Image
+            src={bentoAmbianceImg}
+            alt="Nonton bola dari dekat di Warkop Yaman, suasana hangat malam hari"
+            class="bento__image"
+            loading="lazy"
+            width={600}
+            height={800}
+          />
+          <div class="bento__overlay">
+            <p class="bento__overlay-title">Suasana Nobar</p>
+            <p class="bento__overlay-sub">Malam yang seru bareng warga</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       MENU SECTION
+       ═══════════════════════════════════════════════════════ -->
+  <section class="section" id="menu">
+    <div class="container">
+      <div class="menu-grid">
+        <div class="menu-visual reveal">
+          <Image
+            src={menuImg}
+            alt="Daftar menu lengkap Warkop Yaman"
+            class="menu-visual__image"
+            loading="lazy"
+            width={600}
+            height={800}
+          />
+          <span class="menu-visual__badge">Menu Lengkap</span>
+        </div>
+
+        <div class="menu-list reveal reveal--delay-1">
+          <div class="menu-list__header">
+            <p class="t-caption">Harga Terjangkau</p>
+            <h2 class="t-headline">Pilihan Menu</h2>
+            <p class="t-body" style="margin-top: 0.75rem;">Semua minuman dan makanan disajikan segar, langsung dari dapur Warkop Yaman.</p>
+          </div>
+
+          <!-- Minuman -->
+          <div class="menu-list__category">
+            <p class="menu-list__category-title">Minuman</p>
+
+            <div class="menu-list__row">
+              <span class="menu-list__item-name">Kopi Hitam</span>
+              <span class="menu-list__dots" aria-hidden="true"></span>
+              <span class="menu-list__item-price">Rp 3.000</span>
+            </div>
+            <div class="menu-list__row">
+              <span class="menu-list__item-name">Kopi Susu</span>
+              <span class="menu-list__dots" aria-hidden="true"></span>
+              <span class="menu-list__item-price">Rp 5.000</span>
+            </div>
+            <div class="menu-list__row">
+              <span class="menu-list__item-name">Teh Manis</span>
+              <span class="menu-list__dots" aria-hidden="true"></span>
+              <span class="menu-list__item-price">Rp 3.000</span>
+            </div>
+            <div class="menu-list__row">
+              <span class="menu-list__item-name">Milo / Chocolatos</span>
+              <span class="menu-list__dots" aria-hidden="true"></span>
+              <span class="menu-list__item-price">Rp 5.000</span>
+            </div>
+            <div class="menu-list__row">
+              <span class="menu-list__item-name">Nutrisari / Marimas</span>
+              <span class="menu-list__dots" aria-hidden="true"></span>
+              <span class="menu-list__item-price">Rp 3.000</span>
+            </div>
+            <div class="menu-list__row">
+              <span class="menu-list__item-name">Susu Jahe</span>
+              <span class="menu-list__dots" aria-hidden="true"></span>
+              <span class="menu-list__item-price">Rp 5.000</span>
+            </div>
+          </div>
+
+          <!-- Makanan -->
+          <div class="menu-list__category">
+            <p class="menu-list__category-title">Makanan</p>
+
+            <div class="menu-list__row">
+              <span class="menu-list__item-name">Indomie Goreng / Kuah</span>
+              <span class="menu-list__dots" aria-hidden="true"></span>
+              <span class="menu-list__item-price">Rp 5.000</span>
+            </div>
+            <div class="menu-list__row">
+              <span class="menu-list__item-name">Indomie Telor</span>
+              <span class="menu-list__dots" aria-hidden="true"></span>
+              <span class="menu-list__item-price">Rp 7.000</span>
+            </div>
+            <div class="menu-list__row">
+              <span class="menu-list__item-name">Pisang Goreng</span>
+              <span class="menu-list__dots" aria-hidden="true"></span>
+              <span class="menu-list__item-price">Rp 2.000</span>
+            </div>
+            <div class="menu-list__row">
+              <span class="menu-list__item-name">Tahu Goreng</span>
+              <span class="menu-list__dots" aria-hidden="true"></span>
+              <span class="menu-list__item-price">Rp 1.000</span>
+            </div>
+            <div class="menu-list__row">
+              <span class="menu-list__item-name">Gorengan Campur</span>
+              <span class="menu-list__dots" aria-hidden="true"></span>
+              <span class="menu-list__item-price">Rp 1.000</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       TENTANG / ABOUT
+       ═══════════════════════════════════════════════════════ -->
+  <section class="section" id="tentang">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about__text reveal">
+          <p class="t-caption">Tentang Kami</p>
+          <h2 class="t-headline">Lebih dari sekedar<br />warung kopi</h2>
+          <p class="t-body">
+            Warkop Yaman adalah kedai kopi dan warmindo pinggir jalan yang sederhana,
+            didirikan oleh Yaman Hermawan pada tahun 2025. Kami menjual aneka minuman
+            sasetan dan goreng-gorengan dengan harga terjangkau.
+          </p>
+          <p class="t-body">
+            Setiap malam, warkop ini berubah menjadi tempat nobar bola yang ramai.
+            Warga sekitar berkumpul, menikmati kopi hangat sambil menonton pertandingan
+            di layar lebar. Inilah yang membuat Warkop Yaman menjadi lebih dari sekedar
+            warung biasa — ini adalah ruang komunitas.
+          </p>
+          <a href="/blog/warkop-di-karang-mulya" class="btn btn--primary btn--sm" id="aboutCtaBlog">
+            Baca Cerita Kami
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <div class="about__visual reveal reveal--delay-2">
+          <div class="about__image-stack">
+            <Image
+              src={pisangImg}
+              alt="Pisang goreng renyah, gorengan andalan Warkop Yaman"
+              loading="lazy"
+              width={400}
+              height={500}
+            />
+            <Image
+              src={tahuImg}
+              alt="Tahu goreng panas langsung dari penggorengan"
+              loading="lazy"
+              width={400}
+              height={400}
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       DARK SECTION: HIGHLIGHTS + MARQUEE
+       ═══════════════════════════════════════════════════════ -->
+  <section class="section section--dark" id="highlightSection">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-header__left">
+          <p class="t-caption">Kenapa Warkop Yaman</p>
+          <h2 class="t-headline">Tempat nongkrong<br />favorit warga</h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="highlights stagger" id="highlightsGrid">
+      <div class="highlight">
+        <svg class="highlight__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M17 8h1a4 4 0 110 8h-1"/>
+          <path d="M3 8h14v9a4 4 0 01-4 4H7a4 4 0 01-4-4V8z"/>
+          <line x1="6" y1="2" x2="6" y2="4"/>
+          <line x1="10" y1="2" x2="10" y2="4"/>
+          <line x1="14" y1="2" x2="14" y2="4"/>
+        </svg>
+        <h3 class="highlight__title">Harga Merakyat</h3>
+        <p class="highlight__desc">Kopi mulai dari Rp 3.000 dan gorengan Rp 1.000. Kantong pelajar pun aman.</p>
+      </div>
+
+      <div class="highlight">
+        <svg class="highlight__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="2" y="7" width="20" height="15" rx="2" ry="2"/>
+          <polyline points="17 2 12 7 7 2"/>
+        </svg>
+        <h3 class="highlight__title">Nobar Setiap Malam</h3>
+        <p class="highlight__desc">Layar lebar untuk nonton bola bareng. Suasana seru, sorak sorai warga.</p>
+      </div>
+
+      <div class="highlight">
+        <svg class="highlight__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+          <circle cx="9" cy="7" r="4"/>
+          <path d="M23 21v-2a4 4 0 00-3-3.87"/>
+          <path d="M16 3.13a4 4 0 010 7.75"/>
+        </svg>
+        <h3 class="highlight__title">Ruang Komunitas</h3>
+        <p class="highlight__desc">Bukan cuma warung biasa. Tempat ngobrol, ketemu tetangga, dan tukar cerita.</p>
+      </div>
+    </div>
+
+    <!-- Marquee -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span class="marquee__item">Kopi Hitam <span class="marquee__sep"></span></span>
+        <span class="marquee__item">Pisang Goreng <span class="marquee__sep"></span></span>
+        <span class="marquee__item">Nobar Bola <span class="marquee__sep"></span></span>
+        <span class="marquee__item">Indomie Telor <span class="marquee__sep"></span></span>
+        <span class="marquee__item">Tahu Goreng <span class="marquee__sep"></span></span>
+        <span class="marquee__item">Kopi Susu <span class="marquee__sep"></span></span>
+        <span class="marquee__item">Milo Hangat <span class="marquee__sep"></span></span>
+        <span class="marquee__item">Gorengan Campur <span class="marquee__sep"></span></span>
+        <!-- duplicate for seamless loop -->
+        <span class="marquee__item">Kopi Hitam <span class="marquee__sep"></span></span>
+        <span class="marquee__item">Pisang Goreng <span class="marquee__sep"></span></span>
+        <span class="marquee__item">Nobar Bola <span class="marquee__sep"></span></span>
+        <span class="marquee__item">Indomie Telor <span class="marquee__sep"></span></span>
+        <span class="marquee__item">Tahu Goreng <span class="marquee__sep"></span></span>
+        <span class="marquee__item">Kopi Susu <span class="marquee__sep"></span></span>
+        <span class="marquee__item">Milo Hangat <span class="marquee__sep"></span></span>
+        <span class="marquee__item">Gorengan Campur <span class="marquee__sep"></span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       LOKASI / LOCATION
+       ═══════════════════════════════════════════════════════ -->
+  <section class="section" id="lokasi">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-header__left">
+          <p class="t-caption">Lokasi &amp; Jam Buka</p>
+          <h2 class="t-headline">Mampir kapan aja</h2>
+          <p class="t-body" style="margin-top: 0.75rem;">
+            Jl. Raden Saleh, RT.01/RW.05, Karang Mulya, Kec. Karang Tengah, Kota Tangerang, Banten 15157.
+            Buka setiap hari dari sore hingga larut malam.
+          </p>
+        </div>
+      </div>
+
+      <div class="map-wrap reveal">
+        <iframe
+          src="https://www.google.com/maps?q=-6.2187,106.7068&z=17&output=embed"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Lokasi Warkop Yaman di Google Maps"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  // ── Scroll reveal (IntersectionObserver) ────────────
+  const revealElements = document.querySelectorAll('.reveal, .stagger');
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          if (entry.target.classList.contains('stagger')) {
+            entry.target.classList.add('stagger--visible');
+          } else {
+            entry.target.classList.add('reveal--visible');
+          }
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+  );
+  revealElements.forEach(el => revealObserver.observe(el));
+</script>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://warkopyaman.com/sitemap-index.xml

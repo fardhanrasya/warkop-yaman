@@ -1,0 +1,155 @@
+---
+import Navbar from '@/components/Navbar.astro';
+import Footer from '@/components/Footer.astro';
+import '@/styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string | { src: string };
+  ogType?: 'website' | 'article';
+  articleData?: {
+    pubDate: Date | string;
+    author: string;
+  };
+}
+
+const {
+  title = "Warkop Yaman — Kedai Kopi & Warmindo Pinggir Jalan",
+  description = "Warkop Yaman adalah kedai kopi dan warmindo pinggir jalan di Karang Mulya. Minuman sasetan, goreng-gorengan, dan nobar setiap malam. Didirikan oleh Yaman Hermawan.",
+  ogImage = "/assets/IMG_20260609_201235_272.jpg",
+  ogType = "website",
+  articleData
+} = Astro.props;
+
+// Determine absolute canonical URL dynamically
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://warkopyaman.com');
+
+// Resolve OpenGraph Image URL
+let ogImageUrl = "/assets/IMG_20260609_201235_272.jpg";
+if (ogImage) {
+  if (typeof ogImage === 'string') {
+    ogImageUrl = ogImage;
+  } else if (typeof ogImage === 'object' && ogImage !== null && 'src' in ogImage) {
+    ogImageUrl = ogImage.src;
+  }
+}
+const absoluteOgImage = ogImageUrl.startsWith('http')
+  ? ogImageUrl
+  : new URL(ogImageUrl, Astro.site || 'https://warkopyaman.com').toString();
+---
+
+<!DOCTYPE html>
+<html lang="id" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta name="theme-color" content="#1c1917" />
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href={canonicalURL} />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content={ogType} />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={absoluteOgImage} />
+  <meta property="og:locale" content="id_ID" />
+  <meta property="og:site_name" content="Warkop Yaman" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content={canonicalURL} />
+  <meta property="twitter:title" content={title} />
+  <meta property="twitter:description" content={description} />
+  <meta property="twitter:image" content={absoluteOgImage} />
+
+  <!-- Google Site Verification -->
+  <meta name="google-site-verification" content="PLACEHOLDER_GOOGLE_VERIFICATION_KEY" />
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- Fonts preload -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- JSON-LD LocalBusiness Schema (Homepage) -->
+  {ogType === 'website' && (
+    <script type="application/ld+json" is:inline set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Warkop Yaman",
+      "image": absoluteOgImage,
+      "@id": (Astro.site || 'https://warkopyaman.com').toString(),
+      "url": (Astro.site || 'https://warkopyaman.com').toString(),
+      "telephone": "+6281234567890",
+      "priceRange": "$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Jl. Raden Saleh, RT.01/RW.05, Karang Mulya, Kec. Karang Tengah",
+        "addressLocality": "Tangerang",
+        "addressRegion": "Banten",
+        "postalCode": "15157",
+        "addressCountry": "ID"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -6.2187,
+        "longitude": 106.7068
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "18:00",
+        "closes": "03:00"
+      }
+    })} />
+  )}
+
+  <!-- JSON-LD BlogPosting Schema (Articles) -->
+  {ogType === 'article' && articleData && (
+    <script type="application/ld+json" is:inline set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": title,
+      "description": description,
+      "image": absoluteOgImage,
+      "datePublished": new Date(articleData.pubDate).toISOString(),
+      "author": {
+        "@type": "Person",
+        "name": articleData.author
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Warkop Yaman",
+        "logo": {
+          "@type": "ImageObject",
+          "url": new URL("/assets/warkopyamanlogo.png", Astro.site || 'https://warkopyaman.com').toString()
+        }
+      }
+    })} />
+  )}
+</head>
+<body>
+  <Navbar />
+  <main>
+    <slot />
+  </main>
+  <Footer />
+</body>
+</html>

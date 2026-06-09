@@ -1,0 +1,112 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '@/layouts/Layout.astro';
+
+// 1. Generate static paths for all entries in the 'blog' collection
+export async function getStaticPaths() {
+  const blogEntries = await getCollection('blog');
+  return blogEntries.map(entry => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+// 2. Fetch the specific entry from props
+const { entry } = Astro.props;
+const { title, description, pubDate, author, category, heroImage } = entry.data;
+
+// Render markdown body content
+const { Content } = await render(entry);
+
+// Format date to "Month Year" (e.g. "Juni 2025") in Indonesian locale
+const formattedDate = new Intl.DateTimeFormat('id-ID', {
+  year: 'numeric',
+  month: 'long',
+}).format(new Date(pubDate));
+
+// Calculate reading time dynamically
+const wordCount = entry.body ? entry.body.split(/\s+/).length : 0;
+const readingTime = Math.max(1, Math.ceil(wordCount / 200)) + ' menit';
+---
+
+<Layout
+  title={`${title} | Warkop Yaman`}
+  description={description}
+  ogImage={heroImage}
+  ogType="article"
+  articleData={{ pubDate, author }}
+>
+  <!-- ═══════════════════════════════════════════════════════
+       BLOG HERO
+       ═══════════════════════════════════════════════════════ -->
+  <section class="blog-hero" id="blogHero">
+    <div class="blog-hero__bg">
+      {heroImage && (
+        <img
+          src={heroImage.src}
+          alt={title}
+          loading="eager"
+          width={1400}
+          height={800}
+        />
+      )}
+    </div>
+
+    <div class="container blog-hero__content">
+      <div class="blog-hero__meta">
+        <span class="blog-hero__tag">{category}</span>
+        <span class="blog-hero__date">{formattedDate}</span>
+      </div>
+      <h1 class="blog-hero__title">
+        {title}
+      </h1>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       ARTICLE BODY
+       ═══════════════════════════════════════════════════════ -->
+  <article class="article" id="articleBody">
+    <div class="container">
+      <div class="article-layout">
+        <!-- Sidebar metadata -->
+        <aside class="article-sidebar reveal">
+          <div class="article-sidebar__item">
+            <p class="article-sidebar__label">Ditulis oleh</p>
+            <p class="article-sidebar__value">{author}</p>
+          </div>
+          <div class="article-sidebar__item">
+            <p class="article-sidebar__label">Lokasi</p>
+            <p class="article-sidebar__value">Karang Mulya, Tangerang</p>
+          </div>
+          <div class="article-sidebar__item">
+            <p class="article-sidebar__label">Waktu baca</p>
+            <p class="article-sidebar__value">{readingTime}</p>
+          </div>
+        </aside>
+
+        <!-- Main content -->
+        <div class="article__body reveal reveal--delay-1">
+          <Content />
+        </div>
+      </div>
+    </div>
+  </article>
+</Layout>
+
+<script>
+  // ── Scroll reveal (IntersectionObserver) ────────────
+  const revealElements = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('reveal--visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+  );
+  revealElements.forEach(el => revealObserver.observe(el));
+</script>

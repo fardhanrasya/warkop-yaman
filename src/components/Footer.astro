@@ -1,0 +1,43 @@
+---
+import { Image } from 'astro:assets';
+import logoImg from '@/assets/warkopyamanlogo.png';
+
+const pathname = Astro.url.pathname;
+const isHome = pathname === '/' || pathname === '/index.html';
+const homePrefix = isHome ? '' : '/';
+---
+
+<footer class="footer" id="siteFooter">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <a href={isHome ? "#" : "/"} class="nav__brand">
+          <Image src={logoImg} alt="Logo Warkop Yaman" class="nav__logo" width={40} height={40} />
+          <span class="nav__name" style="color: var(--text-inverse);">Warkop Yaman</span>
+        </a>
+        <p class="footer__brand-desc">
+          Kedai kopi dan warmindo pinggir jalan. Didirikan oleh Yaman Hermawan, 2025.
+          Tempat ngumpul warga Karang Mulya.
+        </p>
+      </div>
+
+      <div class="footer__col">
+        <p class="footer__col-title">Navigasi</p>
+        <a href={`${homePrefix}#tentang`}>Tentang</a>
+        <a href={`${homePrefix}#menu`}>Menu</a>
+        <a href={`${homePrefix}#galeri`}>Galeri</a>
+        <a href={`${homePrefix}#lokasi`}>Lokasi</a>
+      </div>
+
+      <div class="footer__col">
+        <p class="footer__col-title">Lainnya</p>
+        <a href="/blog">Blog</a>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <p>&copy; 2025 Warkop Yaman. Karang Mulya, Tangerang.</p>
+      <p>Dibuat dengan kopi dan semangat.</p>
+    </div>
+  </div>
+</footer>

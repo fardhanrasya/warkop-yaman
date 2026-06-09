@@ -1,0 +1,1 @@
+warkop yaman adalah bisnis kedai kopi/warmindo/warkop pinggir jalan sederhana. yang menjual minuman sasetan dan goreng gorengan. kalau malem biasanya nobar. didirikan oleh Yaman Hermawan pada tahun 2025.

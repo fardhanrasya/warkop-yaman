@@ -1,0 +1,80 @@
+---
+import { Image } from 'astro:assets';
+import logoImg from '@/assets/warkopyamanlogo.png';
+
+const pathname = Astro.url.pathname;
+const isHome = pathname === '/' || pathname === '/index.html';
+const homePrefix = isHome ? '' : '/';
+---
+
+<nav class="nav" id="mainNav" aria-label="Navigasi utama">
+  <div class="nav__inner">
+    <a href={isHome ? "#" : "/"} class="nav__brand" id="navBrand">
+      <Image src={logoImg} alt="Logo Warkop Yaman" class="nav__logo" width={40} height={40} />
+      <span class="nav__name">Warkop Yaman</span>
+    </a>
+
+    <div class="nav__links" id="navLinks">
+      <a href={`${homePrefix}#tentang`} class="nav__link" id="navAbout">Tentang</a>
+      <a href={`${homePrefix}#menu`} class="nav__link" id="navMenu">Menu</a>
+      <a href={`${homePrefix}#galeri`} class="nav__link" id="navGallery">Galeri</a>
+      <a href="/blog" class="nav__link" id="navBlog" style={pathname.startsWith('/blog') ? "color: var(--accent);" : ""}>Blog</a>
+      <a href={`${homePrefix}#lokasi`} class="nav__link" id="navLocation">Lokasi</a>
+    </div>
+
+    <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>
+
+<script>
+  // Select DOM elements
+  const nav = document.getElementById('mainNav');
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+
+  // 1. Nav scroll effect
+  const handleScroll = () => {
+    if (window.scrollY > 60) {
+      nav?.classList.add('nav--scrolled');
+    } else {
+      nav?.classList.remove('nav--scrolled');
+    }
+  };
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  handleScroll(); // Run once initially
+
+  // 2. Mobile nav toggle
+  navToggle?.addEventListener('click', () => {
+    const isOpen = navLinks?.classList.toggle('nav__links--open');
+    nav?.classList.toggle('nav--menu-open', isOpen);
+    navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+
+  // Close mobile nav on link click
+  navLinks?.querySelectorAll('.nav__link').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('nav__links--open');
+      nav?.classList.remove('nav--menu-open');
+      navToggle?.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // 3. Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', (e) => {
+      const targetId = anchor.getAttribute('href');
+      if (targetId === '#' || !targetId) return;
+      const target = document.querySelector(targetId);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
