@@ -1,6 +1,7 @@
 ---
 import Navbar from '@/components/Navbar.astro';
 import Footer from '@/components/Footer.astro';
+import Analytics from '@vercel/analytics/astro';
 import '@/styles/global.css';
 
 interface Props {
@@ -23,7 +24,7 @@ const {
 } = Astro.props;
 
 // Determine absolute canonical URL dynamically
-const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://warkopyaman.com');
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://warkop-yaman.vercel.app');
 
 // Resolve OpenGraph Image URL
 let ogImageUrl = "/assets/IMG_20260609_201235_272.jpg";
@@ -36,7 +37,7 @@ if (ogImage) {
 }
 const absoluteOgImage = ogImageUrl.startsWith('http')
   ? ogImageUrl
-  : new URL(ogImageUrl, Astro.site || 'https://warkopyaman.com').toString();
+  : new URL(ogImageUrl, Astro.site || 'https://warkop-yaman.vercel.app').toString();
 ---
 
 <!DOCTYPE html>
@@ -68,7 +69,7 @@ const absoluteOgImage = ogImageUrl.startsWith('http')
   <meta property="twitter:image" content={absoluteOgImage} />
 
   <!-- Google Site Verification -->
-  <meta name="google-site-verification" content="PLACEHOLDER_GOOGLE_VERIFICATION_KEY" />
+  <meta name="google-site-verification" content="xATHSytcMFEY6lzVIqzDr7HH54_FtYfmDO8LaCwe3_M" />
 
   <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -87,8 +88,8 @@ const absoluteOgImage = ogImageUrl.startsWith('http')
       "@type": "LocalBusiness",
       "name": "Warkop Yaman",
       "image": absoluteOgImage,
-      "@id": (Astro.site || 'https://warkopyaman.com').toString(),
-      "url": (Astro.site || 'https://warkopyaman.com').toString(),
+      "@id": (Astro.site || 'https://warkop-yaman.vercel.app').toString(),
+      "url": (Astro.site || 'https://warkop-yaman.vercel.app').toString(),
       "telephone": "+6281234567890",
       "priceRange": "$",
       "address": {
@@ -139,7 +140,7 @@ const absoluteOgImage = ogImageUrl.startsWith('http')
         "name": "Warkop Yaman",
         "logo": {
           "@type": "ImageObject",
-          "url": new URL("/assets/warkopyamanlogo.png", Astro.site || 'https://warkopyaman.com').toString()
+          "url": new URL("/assets/warkopyamanlogo.png", Astro.site || 'https://warkop-yaman.vercel.app').toString()
         }
       }
     })} />
@@ -151,5 +152,6 @@ const absoluteOgImage = ogImageUrl.startsWith('http')
     <slot />
   </main>
   <Footer />
+  <Analytics />
 </body>
 </html>
