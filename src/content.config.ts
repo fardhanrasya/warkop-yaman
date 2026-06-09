@@ -11,6 +11,7 @@ const blog = defineCollection({
     author: z.string().default('Tim Warkop Yaman'),
     category: z.string().default('Cerita'),
     heroImage: image().optional(),
+    heroImageAlt: z.string().optional(),
     images: z.array(image()).optional(),
   }),
 });
