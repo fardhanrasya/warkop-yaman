@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://warkopyaman.com/sitemap-index.xml
+Sitemap: https://warkop-yaman.vercel.app/sitemap-index.xml

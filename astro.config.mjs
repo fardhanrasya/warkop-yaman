@@ -5,6 +5,6 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://warkopyaman.com',
+  site: 'https://warkop-yaman.vercel.app',
   integrations: [sitemap()]
 });
