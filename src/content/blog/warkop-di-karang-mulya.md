@@ -17,18 +17,8 @@ Warkop Yaman didirikan oleh Yaman Hermawan pada awal tahun 2025. Idenya simpel s
 
 Kata-kata sederhana dari Yaman itu menjadi fondasi dari semua yang terjadi kemudian. Ternyata, warga Karang Mulya memang butuh tempat seperti ini — ruang yang bebas tekanan, tanpa perlu pesan minimum, tempat di mana Anda bisa duduk berjam-jam hanya dengan segelas kopi tiga ribuan.
 
-<div class="article__gallery">
-  <img
-    src="/assets/IMG_20260609_201016_014.jpg"
-    alt="Suasana counter Warkop Yaman di malam hari, pisang gantung dan sachet minuman berjajar"
-    loading="lazy"
-  />
-  <img
-    src="/assets/IMG_20260609_201256_034.jpg"
-    alt="Warkop Yaman dari kejauhan, pelanggan duduk di luar kedai yang terang"
-    loading="lazy"
-  />
-</div>
+![Suasana counter Warkop Yaman di malam hari, pisang gantung dan sachet minuman berjajar](../../assets/IMG_20260609_201016_014.jpg)
+![Warkop Yaman dari kejauhan, pelanggan duduk di luar kedai yang terang](../../assets/IMG_20260609_201256_034.jpg)
 
 ## Lebih dari Sekedar Kopi
 
@@ -36,18 +26,8 @@ Yang membuat Warkop Yaman berbeda dari warung kopi lainnya bukan soal menu atau 
 
 Ada sesuatu yang magis tentang nobar di pinggir jalan. Angin malam yang sejuk, suara motor yang sesekali lewat, aroma kopi yang bercampur asap gorengan. Ini bukan pengalaman yang bisa Anda dapat di kafe ber-AC atau di depan layar smartphone sendiri. Ini pengalaman komunal — pengalaman yang mengingatkan kita bahwa kita adalah bagian dari sesuatu yang lebih besar dari diri sendiri.
 
-<div class="article__gallery">
-  <img
-    src="/assets/IMG_20260609_201041_399.jpg"
-    alt="Warga nonton bareng bola di layar besar Warkop Yaman"
-    loading="lazy"
-  />
-  <img
-    src="/assets/IMG_20260609_201206_821.jpg"
-    alt="Suasana nobar dari dekat, minuman dan snack di atas meja"
-    loading="lazy"
-  />
-</div>
+![Warga nonton bareng bola di layar besar Warkop Yaman](../../assets/IMG_20260609_201041_399.jpg)
+![Suasana nobar dari dekat, minuman dan snack di atas meja](../../assets/IMG_20260609_201206_821.jpg)
 
 ## Dapur Kecil, Rasa Besar
 
