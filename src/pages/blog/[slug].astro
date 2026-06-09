@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import Layout from '@/layouts/Layout.astro';
+import { Image } from 'astro:assets';
 
 // 1. Generate static paths for all entries in the 'blog' collection
 export async function getStaticPaths() {
@@ -42,8 +43,8 @@ const readingTime = Math.max(1, Math.ceil(wordCount / 200)) + ' menit';
   <section class="blog-hero" id="blogHero">
     <div class="blog-hero__bg">
       {heroImage && (
-        <img
-          src={heroImage.src}
+        <Image
+          src={heroImage}
           alt={title}
           loading="eager"
           width={1400}

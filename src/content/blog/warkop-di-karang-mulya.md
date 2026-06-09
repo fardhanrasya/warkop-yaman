@@ -4,7 +4,7 @@ description: "Cerita tentang bagaimana Warkop Yaman menjadi tempat nongkrong fav
 pubDate: "2025-06-09"
 author: "Tim Warkop Yaman"
 category: "Cerita"
-heroImage: "/assets/IMG_20260609_201235_272.jpg"
+heroImage: "../../assets/IMG_20260609_201235_272.jpg"
 ---
 
 Di sudut Jalan Karang Mulya, tepat di pinggir jalan yang ramai motor dan becak, berdiri sebuah kedai kecil bernama Warkop Yaman. Bukan kedai yang megah. Bukan pula tempat dengan interior mewah atau AC dingin. Ini adalah warung kopi sederhana dengan atap seng, meja plastik, dan kursi lipat. Tapi justru di kesederhanaan itulah, kehangatan yang sesungguhnya tercipta.
